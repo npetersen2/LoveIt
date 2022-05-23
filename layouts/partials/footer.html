@@ -34,17 +34,15 @@
                 {{- if ne .Site.Params.footer.author false -}}
                     <span class="author" itemprop="copyrightHolder">&nbsp;<a href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank">{{ .Site.Author.name }}</a></span>
                 {{- end -}}
-
+            </div>
+            <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork">
                 {{- /* License */ -}}
                 {{- with .Site.Params.footer.license -}}
-                    &nbsp;|&nbsp;<span class="license">{{ . | safeHTML }}</span>
+                    <span class="license">{{ . | safeHTML }}</span>
                 {{- end -}}
-
-                {{- /* ICP */ -}}
-                {{- with .Site.Params.footer.icp -}}
-                    <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
-                    <span class="icp">{{ . | safeHTML }}</span>
-                {{- end -}}
+                <span class="google-analytics-tracking-info">
+                    This page uses <a href="https://analytics.google.com/">Google Analytics</a> to collect statistics. Disable by blocking JavaScript from www.google-analytics.com.
+                </span>
             </div>
         </div>
     </footer>
