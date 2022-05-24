@@ -9,9 +9,9 @@
 
     <div class="page archive">
         {{- /* Title */ -}}
-        <h2 class="single-title">
+        <h1 class="single-title">
             {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}
-        </h2>
+        </h1>
 
         {{- /* Categories Page */ -}}
         {{- if eq $taxonomies "categories" -}}

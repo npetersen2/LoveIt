@@ -5,9 +5,9 @@
 {{- define "content" -}}
     <div class="page archive">
         {{- /* Title */ -}}
-        <h2 class="single-title">
+        <h1 class="single-title">
             {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
-        </h2>
+        </h1>
 
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
