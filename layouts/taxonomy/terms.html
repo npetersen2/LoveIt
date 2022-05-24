@@ -47,9 +47,28 @@
 
         {{- /* Tag Cloud Page */ -}}
         {{- else if eq $taxonomies "tags" -}}
+            <p>Tags are divided into groups based on the tag's popularity:</p>
             <div class="tag-cloud-tags">
+                {{ $need_break := 0 }}
+                {{ $prev_count := 100 }}
+
+                <h3>Top Tags</h3>
+
                 {{- range $.Site.Taxonomies.tags.ByCount -}}
+                    {{ if and $need_break (ne .Count $prev_count) }}
+                        {{ $need_break = 0 }}
+                        {{ if eq $prev_count 12}}<h3>Mid Tags</h3>{{end}}
+                        {{ if eq $prev_count 4}}<h3>Low Tags</h3>{{end}}
+                        {{ if eq $prev_count 2}}<h3>Single Tags</h3>{{end}}
+                    {{end}}
+
                     <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
+
+                    {{ if eq .Count 12}} {{ $need_break = 1 }} {{ end }}
+                    {{ if eq .Count 4}} {{ $need_break = 1 }} {{ end }}
+                    {{ if eq .Count 2}} {{ $need_break = 1 }} {{ end }}
+
+                    {{ $prev_count = .Count }}
                 {{- end -}}
             </div>
         {{- end -}}
