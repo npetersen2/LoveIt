@@ -239,6 +239,16 @@
       }
     }
 
+    figure.image > figcaption {
+      min-width: 20%;
+      max-width: 80%;
+      display: inline-block;
+      padding: .5rem;
+      margin: 0 auto;
+      font-size: .875rem;
+      color: #969696;
+    }
+
     .lazyload, .lazyloading {
       @include object-fit(scale-down);
     }
