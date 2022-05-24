@@ -27,14 +27,14 @@
                                     <i class="far fa-folder fa-fw" aria-hidden="true"></i>&nbsp;{{ .Page.Title }}
                                 </a>
                             </h3>
-                            {{- range first 5 $pages -}}
+                            {{- range first 8 $pages -}}
                                 <article class="archive-item">
                                     <a href="{{ .RelPermalink }}" class="archive-item-link">
                                         {{- .Title -}}
                                     </a>
                                 </article>
                             {{- end -}}
-                            {{- if gt (len $pages) 5 -}}
+                            {{- if gt (len $pages) 8 -}}
                                 <span class="more-post">
                                     <a href="{{ .RelPermalink }}" class="more-single-link">{{ T "more" }} >></a>
                                 </span>
