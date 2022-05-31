@@ -27,7 +27,10 @@ if (document.location.hostname.search("nathanpetersen.com") !== -1) {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-R8888Z2VZN');
+    // Disable exact IP address reporting to comply with GDPR
+    //
+    // Approx ~30% reduction in accuracy in city level reporting for GA
+    gtag('config', 'G-R8888Z2VZN', { 'anonymize_ip': true });
 }
 
 </script>
